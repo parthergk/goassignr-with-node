@@ -11,10 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.use("/data", Router);
+app.use("/api", Router);
 
 // Enable preflight requests for the '/data' route
-app.options('/data', cors());
+app.options('/api', cors());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
