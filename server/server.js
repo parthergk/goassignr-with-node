@@ -5,7 +5,7 @@ const Router = require("./routes/data");
 const app = express();
 
 app.use(cors({
-  origin: 'https://goassignr.vercel.app/'
+  origin: 'https://goassignr.vercel.app'
 }));
 
 app.use(express.urlencoded({ extended: true }));
