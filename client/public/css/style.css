@@ -431,7 +431,14 @@ a {
     font-weight: bold;
     font-size: xxx-large;
   }
+  .outputdata{
+    text-align: start;
+    font-size: x-large;
+  }
 @media screen and (max-width: 768px){
+    .outputdata{
+        font-size: larger;
+      }
     .send{
         margin-inline: 15px;
       }

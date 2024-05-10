@@ -1,12 +1,16 @@
+require('dotenv').config();
 const express = require("express");
 const { VertexAI } = require("@google-cloud/vertexai");
 const WebSocket = require("ws");
 
 const router = express.Router();
+
 const vertex_ai = new VertexAI({
   project: "galvanic-ward-422415-a0",
-  location: "us-central1",
+  location: 'us-central1',
+  keyFilename: './galvanic-ward-422415-a0-0413cc19aceb.json' // Correct path to your service account key file
 });
+
 const model = "gemini-1.0-pro-001";
 
 const generativeModel = vertex_ai.preview.getGenerativeModel({
@@ -76,4 +80,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = router
+module.exports = router;

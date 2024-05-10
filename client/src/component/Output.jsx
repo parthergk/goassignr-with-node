@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import store from "../redux/store";
 import { isLoading } from "../redux/loaderSlice"; // Import isLoading action creator
 
 const Output = () => {
-  const [outputData, setOutputData] = useState([]); // State to hold received data
+  const [outputData, setOutputData] = useState(""); // State to hold received data as a string
   const loader = useSelector(state => state.load.loading); // Corrected useSelector usage
   const dispatch = useDispatch();
 
@@ -13,8 +12,8 @@ const Output = () => {
     // Listen for messages
     socket.addEventListener("message", function (event) {
       const newdata = JSON.parse(event.data)[0].text;
-      newdata && dispatch(isLoading(false))
-      setOutputData(prevData => [...prevData, newdata]); // Assuming data is in JSON format
+      newdata && dispatch(isLoading(false));
+      setOutputData(prevData => prevData + newdata); // Append new data to existing string
     });
 
     // Error handling
@@ -32,15 +31,43 @@ const Output = () => {
       socket.close();
     };
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
-
-  console.log(loader);
   
+
+  const renderSections = () => {
+    const sections = outputData.split("\n\n");
+    return sections.map((section, index) => {
+      if (section.startsWith("**")) {
+        return <h2 key={index}>{section.replace(/\*\*/g, "")}</h2>;
+      } else if (section.startsWith("*")) {
+        return (
+          <ul key={index}>
+            {section.split("\n").map((item, i) => (
+              <li key={i}>{item.replace(/^\* /, "")}</li>
+            ))}
+          </ul>
+        );
+      } else {
+        return <p key={index}>{section}</p>;
+      }
+    });
+  };
+
+  const renderOutput = () => {
+    return (
+      <div className="outputdata">
+        <p>
+        <div>{renderSections()}</div>
+        </p>
+      </div>
+    );
+  };
+
   // Render output data
   return (
     <div className="mt-3" id="textOutput">
       <div id="empty"></div>
       {loader && <div className="loader" id="loader">Generating..</div>}
-      {outputData.length > 0 && <p>{outputData}</p>}
+      {outputData && renderOutput()}
     </div>
   );
 };
