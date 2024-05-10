@@ -19,11 +19,7 @@ const Input = () => {
     if (type === "assignment") {
       
       try {
-        const response = await axios.post("https://goassignrserver.vercel.app/data", {"content": input}, {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        });
+        const response = await axios.post("https://goassignrserver.vercel.app/data", {"content": input});
         console.log("Assignment submitted:", response.data);
         setInput('');
         dispatch(isLoading(true));
