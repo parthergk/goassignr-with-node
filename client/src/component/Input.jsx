@@ -17,7 +17,7 @@ const Input = () => {
     }
 
     if (type === "assignment") {
-      axios.post("http://localhost:3000/data",{"content" : input})
+      axios.post("https://goassignrserver.vercel.app/3000/data",{"content" : input})
       setInput('')
       dispatch(isLoading(true))
     } else if (type === "essay") {
