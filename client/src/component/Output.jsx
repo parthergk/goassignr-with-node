@@ -8,7 +8,7 @@ const Output = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const socket = new WebSocket("wss://goassignrserver.vercel.app:8080/"); // Connect to WebSocket server
+    const socket = new WebSocket("wss://goassignr-1.vercel.app/:8080/"); // Connect to WebSocket server
     // Listen for messages
     socket.addEventListener("message", function (event) {
       const newdata = JSON.parse(event.data)[0].text;
