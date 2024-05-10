@@ -6,7 +6,6 @@ const app = express();
 
 app.use(cors({
   origin: 'https://goassignr.vercel.app',
-  credentials: true,
 }));
 
 app.use(express.urlencoded({ extended: true }));

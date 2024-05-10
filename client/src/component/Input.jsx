@@ -17,12 +17,11 @@ const Input = () => {
     }
 
     if (type === "assignment") {
-      
+      setMessage('')
+      dispatch(isLoading(true));
       try {
-        const response = await axios.post("https://goassignrserver.vercel.app/data", {"content": input});
-        console.log("Assignment submitted:", response.data);
+        await axios.post("https://goassignrserver.vercel.app/data", {"content": input});
         setInput('');
-        dispatch(isLoading(true));
       } catch (error) {
         console.error("Error submitting assignment:", error);
       }
