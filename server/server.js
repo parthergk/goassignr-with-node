@@ -4,7 +4,7 @@ const Router = require("./routes/data");
 const app = express();
 
 // CORS middleware configuration
-app.use(cors()); // Allow CORS for all origins
+app.use(cors({origin: 'https://goassignr.vercel.app'})); // Allow CORS for all origins
 
 // Body parsing middleware
 app.use(express.urlencoded({ extended: true }));
