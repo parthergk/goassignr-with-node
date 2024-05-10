@@ -5,12 +5,18 @@ const Router = require("./routes/data");
 const app = express();
 
 app.use(cors({
-  origin: 'https://goassignr.vercel.app/',
+  origin: 'https://goassignr.vercel.app',
   credentials: true,
 }));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.options("/data", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "https://goassignr.vercel.app");
+  res.header("Access-Control-Allow-Methods", "POST");
+  res.sendStatus(200);
+});
 
 app.use("/data", Router);
 
