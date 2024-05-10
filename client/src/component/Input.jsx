@@ -20,7 +20,7 @@ const Input = () => {
       setMessage('')
       dispatch(isLoading(true));
       try {
-        await axios.post("https://goassignr-1.vercel.app/api/data", {"content": input});
+        await axios.post("https://goassignrserver.vercel.app/api/data", {"content": input});
         setInput('');
       } catch (error) {
         console.error("Error submitting assignment:", error);
