@@ -5,7 +5,7 @@ const app = express();
 
 // CORS middleware configuration
 app.use(cors({
-  origin: 'https://goassignr.vercel.app', // Replace with your frontend URL
+  origin: 'http://localhost:5173', // Replace with your frontend URL
   credentials: true,
 }));
 
