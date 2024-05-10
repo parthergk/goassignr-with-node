@@ -52,7 +52,7 @@ wss.on('connection', function connection(ws) {
   });
 });
 
-router.post("/", async (req, res) => {
+router.post("/data", async (req, res) => {
   try {
     const { content } = req.body;
 
