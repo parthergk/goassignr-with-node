@@ -4,22 +4,17 @@ const Router = require("./routes/data");
 const app = express();
 
 // CORS middleware configuration
-// app.use(cors({
-//   origin: 'https://goassignr.vercel.app',
-// }));
-
-app.options('*', cors());
+app.use(cors()); // Allow CORS for all origins
 
 // Body parsing middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-
 // Routes
 app.use("/data", Router);
-app.options('/data', cors());
 
+// Enable preflight requests for the '/data' route
+app.options('/data', cors());
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
