@@ -41,7 +41,7 @@ const generativeModel = vertex_ai.preview.getGenerativeModel({
 });
 
 // Create a WebSocket server inside data.js
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: 10000 });
 
 // WebSocket connection handling
 wss.on('connection', function connection(ws) {
