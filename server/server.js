@@ -83,7 +83,7 @@ router.post("/data", async (req, res) => {
 });
 
 app.use(express.json());
-app.use(cors({origin: 'https://goassignr-9iawjk39x-gaurav5xys-projects.vercel.app/'}))
+app.use(cors({origin: 'https://goassignr-9iawjk39x-gaurav5xys-projects.vercel.app'}))
 app.use(router);
 
 const PORT = 8080; // Use the specified port or default to 8080
