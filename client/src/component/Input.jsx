@@ -20,8 +20,9 @@ const Input = () => {
       setMessage('')
       dispatch(isLoading(true));
       try {
-        await axios.post("https://goassignr.onrender.com/api/data", {"content": input});
         setInput('');
+        const response = await axios.post("https://goassignr.onrender.com/api/data", {"content": input});
+        console.log(response);
       } catch (error) {
         console.error("Error submitting assignment:", error);
       }
