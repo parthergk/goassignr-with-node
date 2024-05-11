@@ -72,7 +72,7 @@ router.post("/data", async (req, res) => {
       });
     }
 
-    res.end(); // End the response
+    res.send("Success"); // End the response
     
   } catch (err) {
     console.error("Error generating content:", err);
