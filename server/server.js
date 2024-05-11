@@ -86,7 +86,7 @@ app.use(express.json());
 app.use(cors({origin: 'https://goassignr.vercel.app'}))
 app.use(router);
 
-const PORT = process.env.PORT || 8080; // Use the specified port or default to 8080
+const PORT = 8080; // Use the specified port or default to 8080
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
