@@ -21,7 +21,7 @@ const Input = () => {
       dispatch(isLoading(true));
       try {
         setInput('');
-        const response = await axios.post("https://goassignr.onrender.com/api/data", {"content": input});
+        const response = await axios.post("https://goassignr.onrender.com/data", {"content": input});
         console.log(response);
       } catch (error) {
         console.error("Error submitting assignment:", error);
