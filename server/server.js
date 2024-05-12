@@ -11,7 +11,7 @@ const router = express.Router();
 const vertex_ai = new VertexAI({
   project: "galvanic-ward-422415-a0",
   location: 'us-central1',
-  keyFilename: 'galvanic-ward-422415-a0-0413cc19aceb.json' // Correct path to your service account key file
+  keyFilename: './APIKEY.json' // Correct path to your service account key file
 });
 
 const model = "gemini-1.0-pro-001";
