@@ -4,18 +4,17 @@ const WebSocket = require("ws");
 const http = require("http");
 const cors = require("cors");
 const { GoogleAuth } = require('google-auth-library');
-const path = require('path'); // Include the path module
+const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
 const router = express.Router();
 
 async function authenticate() {
-  // Specify the path to your service account key file
   const keyFilename = path.join(__dirname, 'APIKEY.json');
 
   const auth = new GoogleAuth({
-    keyFilename: keyFilename, // Use the service account key file for authentication
+    keyFilename: keyFilename,
     scopes: 'https://www.googleapis.com/auth/cloud-platform'
   });
   return await auth.getClient();
@@ -129,7 +128,7 @@ const PORT = 8080;
 server.listen(PORT, async () => {
   try {
     const auth = await authenticate(); // Authenticate to get the project ID
-    const projectId = await auth.getProjectId();
+    const projectId = auth.projectId;
     console.log(`Server running on port ${PORT}`);
     console.log(`Project ID: ${projectId}`);
   } catch (error) {
