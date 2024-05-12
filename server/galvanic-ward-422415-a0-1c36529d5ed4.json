@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "galvanic-ward-422415-a0",
+  "private_key_id": "1c36529d5ed4ede48341e9bece1968a973f8c5ab",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/3DyxbIbl/dyA\nSZnbKoeHVZ7dzFWU9o/2ldwz1disi3B8tf2euHNs+BxxkuyeoUGiYkL4Jgl1+K13\nlv6nSRyBZD3nVT1gbM7ZOYy4zirGqMiUZS9D4nc3yeQdAA6hOB9ncvsbPbCiV6Zo\n/u1dQcKGmugGQqiDFcI7bHeJpR179sXDggPTKtUgBykwvcaSDAqLcKVXov0WpQxJ\n1SspG6Yk5Ddrew3R0IgUg8O5yTn/FRBv6H2/Lwih1WqAWB5hvFvDzqZYBPZSBfjB\nQzUoKV1gq9UV7L0Xfg6Xxe//i2ta7CKRx/aCemp3HuDcZFNkmZJpP67ZIQlTyCpr\nEf3BESZjAgMBAAECggEATbX1+2Na7HM7ydaF9Aiw5ncepvXpwDFyNE2U6IX4gkLk\naA8K0CwjzIJeev4oy0PDovMr7vjxIhB8qpDFSprJafthO38CIjlQOxodTolrOBYL\nUFf/of5rjXQ/6iMoydJCnhMrdGgzUD4yUBrZp8lH8l9yFX8QZC//ATS44k63t4qU\nGyi4mYY/HeMFn/lPmKgEPKJIHi7wE4AIZfs+X9MhSLYFhuBLBbWxB4GRkJ6yt8mj\nkRMGM+3udDiTpGu8CrFNjU4Ezbmqfm35L7Forcw7rJkBUs62lZloEvmysXCl3IA3\nMy+otLxryH808sSkpkV5RQNK//KqwN/osbsUvT6gyQKBgQDfwBo7Wo2na+5Uo3ee\nw0daDRozhIKWTKVHgLOVZ0HPo5zUjBCCHRL2gHUrWLJ7V7GIpsahEYVNxROoPoUK\noIvt4WJ5mnuAafo8U97ITHuG+0VTImFjxEWPfGQ1mp2sqg3Ewel+nBV83k8iamc1\n1qgc11r/lngxHWCdBubL45xZPwKBgQDbg3XJ24Y6sVPsfQFXDdCcRf4PTA/SK7iA\nIUB7Hq3hJ0wg93NmX8Kk2FwVhxLzjmDicSnkjtboi2PgM6diqGGo1RbLnjzWPUtX\niPVwQDV+vk/CGGwx7SOXanIKD9/9WLZJ83xVARF+K8HaLoEDLc+ETR3TP92yU15i\nkNUPR04l3QKBgFgdXfc73Qcu0QfR7FzAiIvlFwlsyMSJ4Jj9DTvsExXDWBK4KhQj\ngQFEa2ArqPY7/bVUAGsT7ExJLUmXfWtG+HQwy0gaV0Kl+Z7iZJy6yfbJY26u3m2c\nsMwl74zQnAGQYqW2u85Zh3jKT529C3I/W6soADUhO6oT6KVOP3vR4hOfAoGBAIhR\n1EU+IdazJvYXD0z7lFBoGwVu6+hOJG7Vt5B+FedcGyfh4/VwhJUQk+b+kiNUiRA2\nzJhWqFmTrrud+FYJUVSiuFxM8WTufapnsFw8U7xY/XkA57f9l3vBq/5Zq3VOsS2t\nmsnDNxTOob0X4iCSQ2va5Cm7YLcMlPHLFbU+R+a1AoGAOKaIeKxshP49K+vXR4x4\nmVijbFoeFh8pCAxzrtQQTuxvkk7tJTZLgMaxgBYTjS2u+yP/HZk/2FjwClwNx4JZ\nOhNbvZaa3cHbeUsCqKMlE9ceFsZJuSr8nydBGj4yuWrKE93mKp9i/5h6Y/zRC77s\nMT2In7zfSD9bwch4u2SlcIU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "gauravkumar@galvanic-ward-422415-a0.iam.gserviceaccount.com",
+  "client_id": "109527066502407383566",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gauravkumar%40galvanic-ward-422415-a0.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,6 +1,4 @@
-import React from "react";
 import Output from "./Output";
-import DowRegButton from "./DowRegButton";
 import Input from "./Input";
 
 const Main = () => {
@@ -9,7 +7,6 @@ const Main = () => {
       <div className="title">Generate Assignment/Essay with AI</div>
       <Input/>
       <Output/>
-      <DowRegButton/>
     </div>
   );
 };

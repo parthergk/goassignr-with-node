@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLoading } from "../redux/loaderSlice"; // Import isLoading action creator
+import jsPDF from 'jspdf';
 
 const Output = () => {
   const [outputData, setOutputData] = useState(""); // State to hold received data as a string
@@ -8,7 +9,13 @@ const Output = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const socket = new WebSocket("wss://goassignrserver.vercel.app:8080/"); // Connect to WebSocket server
+    const socket = new WebSocket("ws://localhost:8080/data"); // Connect to WebSocket server
+
+    // WebSocket connection open
+    socket.addEventListener("open", function () {
+      console.log("WebSocket connection established");
+    });
+
     // Listen for messages
     socket.addEventListener("message", function (event) {
       const newdata = JSON.parse(event.data)[0].text;
@@ -17,8 +24,8 @@ const Output = () => {
     });
 
     // Error handling
-    socket.addEventListener("error", function (event) {
-      console.error("WebSocket error:", event);
+    socket.addEventListener("error", function (error) {
+      console.error("WebSocket error:", error);
     });
 
     // Close handling
@@ -31,7 +38,6 @@ const Output = () => {
       socket.close();
     };
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
-  
 
   const renderSections = () => {
     const sections = outputData.split("\n\n");
@@ -55,20 +61,39 @@ const Output = () => {
   const renderOutput = () => {
     return (
       <div className="outputdata">
-        <p>
         <div>{renderSections()}</div>
-        </p>
       </div>
     );
   };
 
+  const downloadPdf = () => {  
+    const outputText = renderSections().map(element => element.props.children).join('\n');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    pdf.text(outputText, 10, 10);
+    pdf.save('output.pdf');
+    dispatch(isLoading(false));
+  };
+  
+
   // Render output data
   return (
+  <>
     <div className="mt-3" id="textOutput">
       <div id="empty"></div>
       {loader && <div className="loader" id="loader">Generating..</div>}
       {outputData && renderOutput()}
     </div>
+    <div className="container-btn">
+      <div className="horizontally"></div>
+      <div className="buttons-2">
+        <button id="downloadPdfBtn" onClick={downloadPdf}>Download</button>
+        <button id="regenerateBtn">
+          <div id="regenerateloader"></div>
+          Regenerate
+        </button>
+      </div>
+    </div>
+  </>
   );
 };
 
