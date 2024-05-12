@@ -83,7 +83,23 @@ router.post("/data", async (req, res) => {
 });
 
 app.use(express.json());
-app.use(cors({origin: 'https://goassignr-9iawjk39x-gaurav5xys-projects.vercel.app'}))
+
+const allowedOrigins = [
+  'https://goassignr-9iawjk39x-gaurav5xys-projects.vercel.app',
+  'https://goassignr.vercel.app'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Check if the origin is in the allowed origins list or if it's undefined (i.e., from the same origin)
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 app.use(router);
 
 const PORT = 8080; // Use the specified port or default to 8080
