@@ -9,6 +9,7 @@ const Output = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+<<<<<<< HEAD
     const socket = new WebSocket("ws://localhost:8080/data"); // Connect to WebSocket server
 
     // WebSocket connection open
@@ -16,6 +17,9 @@ const Output = () => {
       console.log("WebSocket connection established");
     });
 
+=======
+    const socket = new WebSocket("wss://goassignr.onrender.com:8080"); // Connect to WebSocket server
+>>>>>>> d095f5f669ea78d53de900033b290614dcd32213
     // Listen for messages
     socket.addEventListener("message", function (event) {
       const newdata = JSON.parse(event.data)[0].text;

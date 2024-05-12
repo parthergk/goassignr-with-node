@@ -1,21 +1,14 @@
+require('dotenv').config();
 const express = require("express");
 const { VertexAI } = require("@google-cloud/vertexai");
 const WebSocket = require("ws");
-const http = require("http");
-const { VertexAI } = require("@google-cloud/vertexai");
-const WebSocket = require("ws");
-const http = require("http");
-const cors = require("cors");
 
-
-const app = express();
-const server = http.createServer(app);
 const router = express.Router();
 
 const vertex_ai = new VertexAI({
   project: "galvanic-ward-422415-a0",
   location: 'us-central1',
-  keyFilename: './galvanic-ward-422415-a0-1c36529d5ed4.json' // Correct path to your service account key file
+  keyFilename: './galvanic-ward-422415-a0-0413cc19aceb.json' // Correct path to your service account key file
 });
 
 const model = "gemini-1.0-pro-001";
@@ -47,10 +40,11 @@ const generativeModel = vertex_ai.preview.getGenerativeModel({
   ],
 });
 
-const wsServer = new WebSocket.Server({ server });
+// Create a WebSocket server inside data.js
+const wss = new WebSocket.Server({ port: 8080 });
 
 // WebSocket connection handling
-wsServer.on('connection', function connection(ws) {
+wss.on('connection', function connection(ws) {
   console.log('Client connected to WebSocket.');
 
   ws.on('close', function () {
@@ -71,7 +65,7 @@ router.post("/data", async (req, res) => {
     // Assuming streamingResp.stream is an async iterable
     for await (const item of streamingResp.stream) {
       // Send each chunk as it comes in to WebSocket clients
-      wsServer.clients.forEach(function each(client) {
+      wss.clients.forEach(function each(client) {
         if (client.readyState === WebSocket.OPEN) {
           client.send(JSON.stringify(item.candidates[0].content.parts));
         }
@@ -86,27 +80,4 @@ router.post("/data", async (req, res) => {
   }
 });
 
-app.use(express.json());
-
-const allowedOrigins = [
-  'https://goassignr-9iawjk39x-gaurav5xys-projects.vercel.app',
-  'https://goassignr.vercel.app'
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
-
-app.use(router);
-
-const PORT = 8080; // Use the specified port or default to 8080
-
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = router;

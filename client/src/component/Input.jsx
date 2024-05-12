@@ -20,8 +20,13 @@ const Input = () => {
       setMessage('');
       dispatch(isLoading(true));
       try {
+<<<<<<< HEAD
         await axios.post("http://localhost:8080/data", { "content": input });
+=======
+>>>>>>> d095f5f669ea78d53de900033b290614dcd32213
         setInput('');
+        const response = await axios.post("https://goassignr.onrender.com/data", {"content": input});
+        console.log(response);
       } catch (error) {
         if (error.response) {
           // The request was made and the server responded with a status code
